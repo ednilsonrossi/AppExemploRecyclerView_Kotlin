@@ -4,6 +4,17 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
+        <option name="modules">
+          <set>
+            <option value="/mnt/arquivos/ednilson/workspace/ads_dmo1_2024s2/AppExemploRecyclerView_Kotlin" />
+            <option value="/mnt/arquivos/ednilson/workspace/ads_dmo1_2024s2/AppExemploRecyclerView_Kotlin/app" />
+          </set>
+        </option>
+        <option name="resolveExternalAnnotations" value="false" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="/mnt/arquivos/ednilson/workspace/ads_dmo_2024s1/AppExemploRecyclerView" />
         <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
         <option name="modules">

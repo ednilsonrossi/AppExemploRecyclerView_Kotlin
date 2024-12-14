@@ -1,4 +1,4 @@
-package br.edu.ifsp.appexemplorecyclerview.model
+package br.edu.ifsp.appexemplorecyclerview.data
 
 class AlgoImportante {
     companion object {

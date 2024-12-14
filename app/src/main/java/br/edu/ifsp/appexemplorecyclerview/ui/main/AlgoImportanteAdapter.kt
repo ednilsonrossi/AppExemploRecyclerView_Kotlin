@@ -1,4 +1,4 @@
-package br.edu.ifsp.appexemplorecyclerview.view.adapter
+package br.edu.ifsp.appexemplorecyclerview.ui.main
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,24 +7,17 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.edu.ifsp.appexemplorecyclerview.R
-import br.edu.ifsp.appexemplorecyclerview.databinding.ItemRecyclerviewBinding
-import br.edu.ifsp.appexemplorecyclerview.model.AlgoImportante
-import br.edu.ifsp.appexemplorecyclerview.view.interfaces.DeleteItemClickListener
+import br.edu.ifsp.appexemplorecyclerview.data.AlgoImportante
 
-class AdapterPersonalizado(
-    private val dataset: List<AlgoImportante>,
-    val clickListener: DeleteItemClickListener
+class AlgoImportanteAdapter(
+    private var dataset: List<AlgoImportante>,
+    private val clickListener: DeleteItemClickListener
 ) :
-    RecyclerView.Adapter<AdapterPersonalizado.ViewHolder>() {
+    RecyclerView.Adapter<AlgoImportanteAdapter.ViewHolder>() {
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        // Usando viewBinding
-        //val binding: ItemRecyclerviewBinding = ItemRecyclerviewBinding.bind(view)
-
-        // Usando findViewById
-        val title: TextView = view.findViewById(R.id.textview_title)
-        val sequence: TextView = view.findViewById(R.id.textview_sequence)
-        val delete: ImageView = view.findViewById(R.id.image_delete)
+    fun updateDataset(newDataset: List<AlgoImportante>) {
+        this.dataset = newDataset
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -37,7 +30,7 @@ class AdapterPersonalizado(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         // recupera referencia do item (algo importante) para ser inserido no recyclerview
-        var itemImportante = dataset[position]
+        val itemImportante = dataset[position]
 
         // popular a view com os dados de algo importante usando binding
         //holder.binding.textviewTitle.setText("Elemento: ${itemImportante.id}")
@@ -48,5 +41,15 @@ class AdapterPersonalizado(
         holder.title.setText("Elemento: ${itemImportante.id}")
         holder.sequence.setText("#${itemImportante.id}")
         holder.delete.setOnClickListener { clickListener.onDeleteItemClick(position) }
+    }
+
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        // Usando viewBinding
+        //val binding: ItemRecyclerviewBinding = ItemRecyclerviewBinding.bind(view)
+
+        // Usando findViewById
+        val title: TextView = view.findViewById(R.id.textview_title)
+        val sequence: TextView = view.findViewById(R.id.textview_sequence)
+        val delete: ImageView = view.findViewById(R.id.image_delete)
     }
 }

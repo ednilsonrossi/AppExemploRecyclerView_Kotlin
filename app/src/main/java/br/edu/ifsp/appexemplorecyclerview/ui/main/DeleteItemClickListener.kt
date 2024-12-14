@@ -1,4 +1,4 @@
-package br.edu.ifsp.appexemplorecyclerview.view.interfaces
+package br.edu.ifsp.appexemplorecyclerview.ui.main
 
 interface DeleteItemClickListener {
 
